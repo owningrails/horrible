@@ -1,0 +1,41 @@
+<h1>Create an Account</h1>
+
+<%= form_for @account do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Account Info</h3>
+  <p>
+    <%= f.label :domain %><br />
+    <%= f.text_field :domain %>
+  </p>
+  <p>
+    <%= f.label :billing_email %><br />
+    <%= f.text_field :billing_email %>
+  </p>
+  
+  <!-- ... -->
+  
+  <h3>User Info</h3>
+  <%= f.fields_for @user do |f| %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+  <% end %>
+  
+  <p><%= f.submit %></p>
+<% end %>

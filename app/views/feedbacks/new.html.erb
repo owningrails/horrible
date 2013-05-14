@@ -1,0 +1,17 @@
+<h1>New feedback</h1>
+
+<%= form_tag feedbacks_path do %>
+  <div class="field">
+    <%= label_tag :from %><br>
+    <%= email_field_tag "feedback[from]" %>
+  </div>
+  <div class="field">
+    <%= label_tag :comment %><br>
+    <%= text_area_tag "feedback[comment]" %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', feedbacks_path %>
