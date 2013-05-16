@@ -5,6 +5,5 @@ class User < ActiveRecord::Base
   scope :newest, -> { order("created_at desc") }
 
   validates :name, presence: true
-  # validates :email, format: /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\z/i
-  validates :email, email: true
+  validates :email, format: /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}\z/i
 end
